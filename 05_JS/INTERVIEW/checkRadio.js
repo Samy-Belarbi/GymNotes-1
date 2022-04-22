@@ -26,8 +26,8 @@ export const check = (event) => {
     if (!input.checked) {
         removeClassCheckedToAllLabels(labelParent);
         addClassLabelTargeted(event, labelParent);
-        input.checked = true;
         addInputChecked();
+        input.checked = true;
         checkPermaInputsChecked();
         return;
     };
@@ -75,21 +75,18 @@ export const checkPermaInputsChecked = () => {
 }
 
 export const addInputChecked = () => {
-
-    if (inputs.checked <= inputs.actualClicked
-        && inputs.checked < numberOfLi) {
-        inputs.checked++;
+    
+    if (checkPermaInputsChecked()) {
+        return;
     }
 
+    inputs.checked++;
 
 };
 
 export const reduceInputChecked = () => {
 
-    if (inputs.checked - inputs.actualClicked === 1) {
-        inputs.checked--;
-    }
-
+    inputs.checked--;
 };
 
 

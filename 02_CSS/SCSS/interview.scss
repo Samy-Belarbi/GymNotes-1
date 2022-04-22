@@ -22,25 +22,57 @@
 
 // QUESTIONNAIRE
 
+main {
+    background-color: var(--gymBlack);
+}
+
 #container {
     width: 90%;
     height: 100vh;
     margin: auto;
     justify-content: center;
     align-items: center;
+    padding-top: 2em;
 
-    gap: 30px;
+    gap: 10px;
+
+    h2 {
+        font-family: "jumper";
+        font-size: 50px;
+        color: var(--gymYellow);
+        text-align: center;
+    }
+
+    button {
+
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 2em;
+
+        border: none;
+        outline: none;
+
+        cursor: pointer;
+
+        padding: 0em 1em 0em 1em;
+
+        @include classicTransi;
+    }
 
     #slider {
         flex-direction: row;
         width: 100%;
-        background-color: grey;
+        background-color: white;
         overflow: hidden;
 
         scroll-behavior: smooth;
 
         &::-webkit-scrollbar {
             display: none;
+        }
+
+        h3 {
+            font-size: 40px;
         }
 
         li {
@@ -50,8 +82,7 @@
             justify-content: center;
 
             .questions {
-
-                background-color: rgb(168, 168, 168);
+                
                 height: 70%;
                 width: 100%;
                 align-items: center;
@@ -91,5 +122,10 @@
         justify-content: center;
         gap: 10px;
         padding: 1em;
+    }
+
+    #buttonGenerate {
+        background-color: var(--gymBlue);
+        color: white;
     }
 }

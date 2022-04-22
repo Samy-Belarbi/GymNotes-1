@@ -66,7 +66,7 @@ export const makeSlideToLeft = () => {
 
 // BUTTON BACK
 export const createButtonBack = () => {
-    const button = buttonCreator("buttonGoBack", "Retour", makeSlideToLeft);
+    const button = buttonCreator("buttonGoBack", "<", makeSlideToLeft);
 
     divButtons.prepend(button);
 }
