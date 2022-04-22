@@ -1,0 +1,220 @@
+* {
+    font-family: Helvetica, sans-serif;
+}
+
+@font-face {
+    font-family: "Jumper";
+    src: url(../../06_FONTS/jumper_3/Jumper-BlackItalic.ttf);
+}
+
+:root {
+    --gymBlack: #191919;
+    --gymBlue: #0042fc;
+    --gymYellow: #ffc74d;
+}
+
+// GLOBAL MIXINS //
+
+@mixin classicTransi {
+    transition: all 0.3s ease-in-out;
+}
+
+// GLOBAL VALUES
+
+h3 {
+    font-family: "jumper";
+    font-size: 30px;
+    color: white;
+}
+
+// Sélection des jours
+
+#container-1 {
+
+    width: 100%;
+    height: 60vh;
+    background-color: var(--gymBlack);
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+
+    #days {
+        flex-direction: row;
+        width: 80%;
+        justify-content: space-evenly;
+        height: fit-content;
+        flex-wrap: wrap;
+
+        .day {
+            height: 250px;
+            width: 12%;
+            background-color: rgb(188, 188, 188);
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 0px 5px #00000024;
+            position: relative;
+
+            @include classicTransi;
+
+            input {
+                width: 0%;
+                height: 0%;
+                top: 0;
+                left: 0;
+
+                &:checked{
+                    background-color: red;
+                }
+            }
+
+            label {
+                font-size: 20px;
+                pointer-events: none;
+            }
+        }
+    }
+}
+
+// Création des exercices
+
+#container-2 {
+    width: 100%;
+    height: fit-content;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgb(207, 207, 207);
+
+    gap: 20px;
+
+    h3 {
+        color: var(--gymBlack);
+        text-align: center;
+        width: 50%;
+    }
+
+    #sessions {
+        width: 80%;
+        height: fit-content;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+
+        gap: 20px;
+
+
+        .session {
+            width: 100%;
+            min-width: 400px;
+            height: fit-content;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 0px 5px #00000024;
+            background-color: var(--gymBlack);
+            gap: 20px;
+            padding-top: 2em;
+            padding-bottom: 2em;
+
+            h4 {
+                color: white;
+                font-size: 30px;
+            }
+
+            .exercices {
+                width: 90%;
+                align-items: center;
+                gap: 20px;
+                    
+                    .exercice {
+                        background-color: grey;
+                        border-radius: 5px;
+                        flex-direction: row;
+                        width: 90%;
+                        align-items: center;
+                        text-align: center;
+                        justify-content: space-around;
+                        border: 1px solid black;
+                        padding-top: 1em;
+                        padding-bottom: 1em;
+
+                        transform: scale(1);
+                        transform-origin: top;
+
+                        animation: apparition ease-in-out 0.5s;
+
+                        @keyframes apparition {
+                            0% {
+                                transform: scale(0);
+                            }
+                            100% {
+                                transform: scale(1);
+                            }
+                        }
+
+                        @keyframes disparition {
+                            0% {
+                                transform: scale(1);
+                            }
+                            100% {
+                                transform: scale(0);
+                            }
+                        }
+
+                        label, p {
+                            font-weight: 700;
+                        }
+
+                        .rest {
+                            select {
+                                width: fit-content;
+                                padding-left: 1em;
+                                padding-right: 1em;
+                            }
+        
+                            div {
+                                flex-direction: row;
+                                align-items: center;
+                                justify-content: center;
+                                gap: 10px;
+                            }
+                        }
+        
+                        .performance {
+                            align-items: center;
+                            input {
+                                width: 100px;
+                            }
+                        }
+                    }
+            }
+
+            .buttonsExercices {
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                width: 10%;
+                gap: 20px;
+
+                button {
+                    height: fit-content;
+                    background-color: white;
+                    color: var(--gymBlack);
+                    font-weight: 700;
+                    border: none;
+                    cursor: pointer;
+                }
+            }
+
+            button {
+                background-color: white;
+                cursor: pointer;
+                border: none;
+                color: var(--gymBlack);
+                font-weight: 700;
+                font-size: 16px;
+            }
+        }
+    }
+}

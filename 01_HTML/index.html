@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymNotes</title>
+
+    <link rel="stylesheet" href="../02_CSS/CSS/Reset-and-common/reseter.css">
+    <link rel="stylesheet" href="../02_CSS/CSS/Reset-and-common/common.css">
+    <link rel="stylesheet" href="../02_CSS/CSS/index.css">
+
+    <script type="module" src="../05_JS/INDEX/index.js"></script>
+
+</head>
+
+<body>
+
+    <div id="blackBackground"></div>
+
+    <button type="button" id="hamburgerButton">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+    </button>
+
+    <header>
+
+        <nav>
+
+            <ul>
+
+                <li>
+                    <a href="../01_HTML/index.html">
+                        <img src="../04_ICONS/ballon-de-basket.png" alt="logo-gymnotes">
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../01_HTML/index.html">
+                        Accueil
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../01_HTML/Articles.html">
+                        Articles
+                    </a>
+                </li>
+
+                <li id="lets-go">
+                    <a href="../01_HTML/create-session.html">
+                        LET'S GO !
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../01_HTML/progression.html">
+                        Tracker
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../01_HTML/our-team.html">
+                        Notre équipe
+                    </a>
+                </li>
+
+                <li>
+                    <a id="login">
+                        <img src="../04_ICONS/icon-user.png" alt="icon-connexion">
+                    </a>
+                    <div id="userInfos">
+
+                        <form action="login.php" method="post">
+
+                            <div>
+                                <label for="user">Pseudo :</label>
+                                <input type="text" id="user" name="pseudo" autocomplete="name">
+                            </div>
+
+                            <div>
+                                <label for="password">Mot de Passe :</label>
+                                <input type="password" id="password" name="password" autocomplete="current-password">
+                            </div>
+
+                            <button type="submit">Connexion</button>
+
+                        </form>
+                    </div>
+                </li>
+
+            </ul>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <!-- ENTREE -->
+        <section id="container-1">
+
+            <div id="under-container1">
+
+                <h1>GymNotes</h1>
+
+                <div id="typewriter">
+
+                    <div class="session-container">
+
+                        <h2 id="createSession" class="typewrited"></h2>
+
+                        <p> Inscris tes exercices, tes performances et tes temps de repos </p>
+
+                    </div>
+
+                    <div class="session-container">
+
+                        <h2 id="startSession" class="typewrited"></h2>
+
+                        <p> Suis ta routine à la lettre </p>
+
+                    </div>
+
+                    <div class="session-container">
+
+                        <h2 id="trackProgress" class="typewrited"></h2>
+
+                        <p> Compare tes performances chaque semaine </p>
+
+                    </div>
+
+                </div>
+
+                <div id="smartphoneApp">
+                    <img src="../../03_IMAGES/smartphone.png" alt="">
+                </div>
+
+
+            </div>
+
+            <button class="buttons">Je lance ma séance !</button>
+
+        </section>
+
+        <!-- QU'EST-CE QUE GYMNOTES -->
+        <section id="container-2">
+
+            <div>
+
+                <img src="../03_IMAGES/notes.png" alt="notes">
+
+            </div>
+
+            <div id="whatIsGymnotes">
+
+                <h2>
+                    Qu'est-ce que <span class="gymnotes"> GymNotes ?</span>
+                </h2>
+
+                <div>
+                    <h3>Un moyen d'organiser ses séances</h3>
+
+                    <p>
+                        Inscris tes séances hebdomadaires avec tes exercices, le nombre de séries, tes performances et
+                        tes temps de repos.
+                    </p>
+                </div>
+
+                <div>
+                    <h3>Fini de se perdre !</h3>
+
+                    <p>
+                        Une fois que tout est inscrit, tu n'as plus qu'à lancer ta séance du jour et suivre l'ordre de
+                        celle-ci. </p>
+
+                    <p>
+                        Indique dès que t'as fini ta série, on s'occupe du reste : on lance ton chrono et met à jour ton
+                        nombre de séries/exercices restants.
+                    </p>
+
+                </div>
+
+                <button class="buttons">J'essaie !</button>
+
+            </div>
+
+        </section>
+
+        <!-- TRACKING -->
+        <section id="container-3">
+
+            <div id="h2-container">
+                <h2>
+                    Suis ta progression au fil des jours, et reste <span>motivé !</span>
+                </h2>
+            </div>
+
+            <div id="chart">
+
+                <h3>Évolution du poids</h3>
+
+                <div id="rod-container">
+
+                    <div class="rod-parent">
+                        <div class="rod"></div>
+                        <p>SEMAINE 1</p>
+                    </div>
+
+                    <div class="rod-parent">
+                        <div class="rod"></div>
+                        <p>SEMAINE 2</p>
+                    </div>
+
+                    <div class="rod-parent">
+                        <div class="rod"></div>
+                        <p>SEMAINE 3</p>
+                    </div>
+
+                    <div class="rod-parent">
+                        <div class="rod"></div>
+                        <p>SEMAINE 4</p>
+                    </div>
+
+                    <div class="rod-parent">
+                        <div class="rod"></div>
+                        <p>SEMAINE 5</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button class="buttons">Je track ma progression !</button>
+        </section>
+
+        <!-- VENTE DE PROGRAMMES -->
+        <section id="container-4">
+
+            <div>
+
+                <h3>
+                    <span>Débutant ? </span> Nos experts t'accompagnent pour 49€/mois !
+                </h3>
+
+                <p>
+                    On peut rapidement se perdre avec la tonne de documentation disponible sur internet: il est très
+                    difficile de composer avec et de différencier les bons des mauvais conseils.
+                </p>
+
+                <h3>Notre équipe de coachs et de médecins à ta disposition</h3>
+
+                <p>
+                    Nous avons formé une équipe de passionnés les plus assidus dans leurs domaines pour optimiser et
+                    accélérer ta progression, peu importe tes objectifs (perte de poids, prise de masse ou encore
+                    améliorer tes performances dans ta discipline sportive).
+                </p>
+
+                <button class="teamButton">Je découvre l'équipe →</button>
+
+                <button class="buttons">Je démarre mon mois d'essai gratuit</button>
+
+            </div>
+
+            <div id="free">
+
+                <h3>Nos programmes préconçus<span>GRATUITS !</span> </h3>
+
+                <p>
+                    Nous proposons également des programmes sportifs préconçus, adaptés en fonction de ta condition et
+                    de ton objectif que l'on détermine à travers notre questionnaire.
+                    <span>Et tout ça, totalement gratuitement. </span>
+                </p>
+
+                <button>
+                    Répondre au questionnaire →
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- ARTICLES -->
+        <section id="container-5">
+
+            <h2>Nos derniers articles</h2>
+
+            <div id="cards-articles">
+
+                <div>
+                    <h3>Développé couché</h3>
+                    <img src="../03_IMAGES/notes.png" alt="developpe-couche">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam molestias dolorem aliquid iure consectetur corporis a recusandae neque, distinctio reiciendis commodi, beatae ea suscipit</p>
+
+                    <a href="#">En savoir plus →</a>
+                </div>
+
+                <div>
+                    <h3>Développé couché</h3>
+                    <img src="../03_IMAGES/notes.png" alt="developpe-couche">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam molestias dolorem aliquid iure consectetur corporis a recusandae neque</p>
+                    <a href="#">En savoir plus →</a>
+                </div>
+
+                <div>
+                    <h3>Développé couché</h3>
+                    <img src="../03_IMAGES/notes.png" alt="developpe-couche">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam molestias dolorem aliquid iure consectetur corporis a recusandae neque, distinctio reiciendis commodi, beatae ea suscipit</p>
+                    <a href="#">En savoir plus →</a>
+                </div>
+
+                <div>
+                    <h3>Développé couché</h3>
+                    <img src="../03_IMAGES/notes.png" alt="developpe-couche">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam molestias dolorem aliquid iure consectetur corporis a recusandae neque</p>
+                    <a href="#">En savoir plus →</a>
+                </div>
+
+            </div>
+
+            <button>
+                Tous nos articles →
+            </button>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <a href="#container-1">Revenir en haut de la page ↑</a>
+
+        <nav>
+            <ul>
+
+                <li>
+
+                    <a href="">Accueil</a>
+
+                </li>
+
+                <li>
+
+                    <a href="">Nous contacter</a>
+
+                </li>
+
+                <li>
+
+                    <a href="">CGV</a>
+
+                </li>
+
+                <li>
+
+                    <a href="">Conditions d'utilisation</a>
+
+                </li>
+
+            </ul>
+        </nav>
+
+        <p>Copyright © 2022 GymNotes - Tous droits réservés.</p>
+
+    </footer>
+
+</body>
+
+</html>
