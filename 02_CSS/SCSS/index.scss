@@ -469,10 +469,6 @@ header {
                 }
             }
         }
-
-        button {
-            margin-top: 20px;
-        }
     }
 }
 
@@ -514,11 +510,6 @@ header {
                         }
                     }
                 }
-            }
-
-
-            button {
-                margin-top: 0;
             }
 
             #smartphoneApp {
@@ -931,7 +922,7 @@ header {
             text-align: center;
         }
 
-        button {
+        .buttons {
             margin-top: 20px;
         }
 
@@ -944,6 +935,7 @@ header {
 
     .teamButton {
         background-color: transparent;
+        margin-top: 20px;
         color: black;
         border: none;
         outline: none;
@@ -957,6 +949,7 @@ header {
     #free {
         height: 70%;
         box-shadow: 0px 0px 5px #00000024;
+        gap: 20px;
         @include classicTransi;
 
         h3 {
@@ -966,6 +959,7 @@ header {
 
             span {
                 font-size: 50px;
+                padding-bottom: 0;
                 @include classicTransi;
             }
         }
@@ -980,8 +974,8 @@ header {
             }
         }
 
-        button {
-            background-color: var(--gymBlack);
+        .buttonInterview {
+            background-color: black;
             color: white;
             border: none;
             font-size: 18px;
@@ -1033,7 +1027,7 @@ header {
                 font-size: 40px;
             }
 
-            button {
+            a {
                 font-size: 16px;
             }
         }
@@ -1045,7 +1039,7 @@ header {
                 }
             }
 
-            button {
+            a {
                 font-size: 14px;
             }
             
@@ -1070,6 +1064,13 @@ header {
         text-align: center;
     }
 
+
+    a {
+        color: var(--gymBlack);
+        font-size: 16px;
+        font-weight: 600;
+    }
+
     #cards-articles {
         flex-direction: row;
         flex-wrap: wrap-reverse;
@@ -1092,13 +1093,6 @@ header {
             h3 {
                 font-size: 20px;
                 text-align: center;
-            }
-
-            a {
-                color: var(--gymBlack);
-                font-size: 16px;
-                font-weight: 600;
-                text-decoration: none;
             }
 
             p {
