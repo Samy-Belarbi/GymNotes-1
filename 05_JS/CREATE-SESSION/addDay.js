@@ -27,7 +27,8 @@ export const check = (event) => {
         return;
     };
 
-    if (input.checked) {
+    if (input.checked
+        && window.confirm("Êtes-vous sûr de vouloir supprimer la séance ?")) {
         removeClassToLabel(event);
         input.checked = true;
         removeDay();
@@ -198,23 +199,25 @@ export const dayGenerator = () => {
     const divSuperior = divSessions.querySelector("." + selectedDaysArray[indexSuperior]);
     divSessions.insertBefore(divSession, divSuperior);
 
-
-    console.log(divSuperior);
-
 };
+
+// export const findIndexSuperior = () => {
+//     let indexSuperior;
+//     for (let i = selectedDaysArray.indexOf(dayName); i < selectedDaysArray.length; i++) {
+
+//         let dayAnalyzed = selectedDaysArray[i];
+
+//         if (i > selectedDaysArray.indexOf(dayName)
+//             && typeof dayAnalyzed === "string") {
+//             indexSuperior = i;
+//             break;
+//         }
+//     }
+
+//     return indexSuperior;
+// };
 
 export const findIndexSuperior = () => {
-    let indexSuperior;
-    for (let i = selectedDaysArray.indexOf(dayName); i < selectedDaysArray.length; i++) {
-
-        let dayAnalyzed = selectedDaysArray[i];
-
-        if (i > selectedDaysArray.indexOf(dayName)
-            && typeof dayAnalyzed === "string") {
-            indexSuperior = i;
-            break;
-        }
-    }
-
-    return indexSuperior;
-};
+    const dayIndex = selectedDaysArray.indexOf(dayName);
+    return selectedDaysArray.findIndex((day, index) =>  index > dayIndex && typeof day === "string");
+}
