@@ -188,22 +188,33 @@ export const dayGenerator = () => {
     buttonAddExercice.innerText = "+";
     divExercices.append(buttonAddExercice);
 
-    if (dayName === daysArray[0]) {
-        divSessions.prepend(divSession);
-        return;
-    }
+    let indexSuperior = findIndexSuperior();
 
-    if (dayName === daysArray[6]) {
+    if (indexSuperior === undefined) {
         divSessions.append(divSession);
         return;
     }
 
-    divSessions.append(divSession);
+    const divSuperior = divSessions.querySelector("." + selectedDaysArray[indexSuperior]);
+    divSessions.insertBefore(divSession, divSuperior);
 
-    console.log(selectedDaysArray[6]);
 
-    // selectedDaysArray.indexOf(dayName)+1]
+    console.log(divSuperior);
 
-    // divSessions.insertBefore(divSession, selectedDaysArray.indexOf(dayName)+1);
+};
 
+export const findIndexSuperior = () => {
+    let indexSuperior;
+    for (let i = selectedDaysArray.indexOf(dayName); i < selectedDaysArray.length; i++) {
+
+        let dayAnalyzed = selectedDaysArray[i];
+
+        if (i > selectedDaysArray.indexOf(dayName)
+            && typeof dayAnalyzed === "string") {
+            indexSuperior = i;
+            break;
+        }
+    }
+
+    return indexSuperior;
 };
