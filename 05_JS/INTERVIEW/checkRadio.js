@@ -39,7 +39,7 @@ export const check = (event) => {
         reduceInputChecked();
         checkPermaInputsChecked();
         return;
-    }
+    };
 
     if (input.checked) {
         removeClassCheckedToAllLabels(labelParent);

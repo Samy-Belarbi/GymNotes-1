@@ -1,131 +1,209 @@
-import { exercice } from "./addExercice.js";
+export const divSessions = document.getElementById("sessions");
 
-export const days = document.querySelectorAll(".day");
-
-export let whichDay = {
-    day: "Lundi",
-}
-
-export let dayCounter = {
-    Lundi: 0,
-    Mardi: 0,
-    Mercredi: 0,
-    Jeudi: 0,
-    Vendredi: 0,
-    Samedi: 0,
-    Dimanche: 0,
-}
+// DAYS
+export const days = document.querySelectorAll("label");
+export const daysArray = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
+export let selectedDaysArray = [];
+selectedDaysArray.length = daysArray.length;
+export let dayName;
+export let indexOfDaySelected = 0;
 
 days.forEach(day => {
     day.addEventListener("click", (event) => check(event));
 })
 
+// FONCTION CHECK
+
 export const check = (event) => {
-    const input = event.target.querySelector("input");
 
+    const input = event.target.nextElementSibling;
+    dayName = input.name;
+    
     if (!input.checked) {
-        event.target.style.backgroundColor = "blue";
-        event.target.style.color = "white";
-        event.target.style.transform = "scale(1.05)";
+        addClassToLabel(event);
+        input.checked;
+        checkIfDayAlreadyCreated();
+        createDay();
+        return;
+    };
+
+    if (input.checked) {
+        removeClassToLabel(event);
         input.checked = true;
-        whichDay.day = input.name;
-        addDay(input);
+        removeDay();
         return;
-    }
+    };
 
-    if (input.checked === true) {
-        event.target.style.transform = "scale(1)";
-        event.target.style.color = "black";
-        event.target.style.backgroundColor = "rgb(188, 188, 188)";
-        input.checked = false;
-        whichDay.day = null;
-        return;
-    }
+};
 
+// FONCTIONS ADD OU REMOVE CLASSES
+export const addClassToLabel = (event) => {
+    event.target.classList.add("checked");
 }
 
-export const addDay = (input) => {
+export const removeClassToLabel = (event) => {
+    event.target.classList.remove("checked");
+}
 
-    const divSessions = document.getElementById("sessions");
+// FONCTION QUI VERIFIE SI LE JOUR EXISTE DEJA
+export const checkIfDayAlreadyCreated = () => {
+    if (selectedDaysArray.includes(dayName)) {
+        return true;
+    }
 
-    const divDay = document.createElement("div");
-    divDay.classList.add("session");
+    return false;
+}
 
-    console.log(whichDay.day);
+// FONCTION CREATION DE JOUR
+export const createDay = () => {
+    if (!checkIfDayAlreadyCreated()) {
+        findDayNameIndex();
+        selectedDaysArray.splice(indexOfDaySelected, 1, dayName);
+        dayGenerator();
+    }
+};
 
-    divDay.innerHTML = `
-    
-    <h4>${whichDay.day}</h4>
+// FONCTION REMOVE DE JOUR 
+export const removeDay = () => {
+    findDayNameIndex();
+    selectedDaysArray.splice(indexOfDaySelected, 1, null);
+    const dayToRemove = document.querySelector("." + dayName);
+    divSessions.removeChild(dayToRemove);
+};
 
-    <div class="exercices">
+// FONCTION TROUVE L'INDEX DU JOUR SELECTIONNE
+export const findDayNameIndex = () => {
+    indexOfDaySelected = daysArray.indexOf(dayName);
+};
 
-        <div class="exercice">
+// FONCTION QUI CREE L'HTML D'UN JOUR
+export const dayGenerator = () => {
+    const divSession = document.createElement("div");
+    divSession.classList.add("session");
+    divSession.classList.add(dayName);
 
-            <div class="exercice-name">
+    const h4 = document.createElement("h4");
+    h4.innerText = dayName;
+    divSession.append(h4);
 
-            <label for="exo-${whichDay.day + exercice.currentNumberOfExercices}">Nom de l'exercice</label>
-            <input type="text" id="exo-${whichDay.day + exercice.currentNumberOfExercices}" name="exo-${whichDay.day + exercice.currentNumberOfExercices}" minlength="2" maxlength="30" required>
+    const divExercices = document.createElement("div");
+    divExercices.classList.add("exercices");
+    divSession.append(divExercices);
 
-            </div>
+    const divExercice = document.createElement("div");
+    divExercice.classList.add("exercice");
+    divExercices.append(divExercice);
 
-            <div class="rest">
+    const divExerciceName = document.createElement("div");
+    divExerciceName.classList.add("exercice-name");
+    divExercice.append(divExerciceName);
 
-                <p>Temps de repos :</p>
+    const labelExercice = document.createElement("label");
+    labelExercice.for = `"exo-${dayName}-1"`;
+    labelExercice.innerText = "Nom de l'exercice";
+    divExerciceName.append(labelExercice);
 
-                <div>
+    const inputExercice = document.createElement("input");
+    inputExercice.type = "text";
+    inputExercice.id = labelExercice.for;
+    inputExercice.name = inputExercice.id;
+    inputExercice.minLength = 2;
+    inputExercice.maxLength = 30;
+    inputExercice.required;
+    divExerciceName.append(inputExercice);
 
-                <label for="minutes-${whichDay.day + exercice.currentNumberOfExercices}">Minutes</label>
+    const divRest = document.createElement("div");
+    divRest.classList.add("rest");
+    divExercice.append(divRest);
 
-                <select name="minutes-${whichDay.day + exercice.currentNumberOfExercices}" id="minutes-${whichDay.day + exercice.currentNumberOfExercices}" required>
+    const p = document.createElement("p");
+    p.innerText = "Temps de repos :";
 
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
+    const divForDivRest = document.createElement("div");
+    divRest.append(divForDivRest);
 
-                </select>
+    const labelRestMinutes = document.createElement("label");
+    labelRestMinutes.for = `"minutes-${dayName}-1"`;
+    labelRestMinutes.innerText = "Minutes";
+    divForDivRest.append(labelRestMinutes);
 
-                <label for="seconds-${whichDay.day + exercice.currentNumberOfExercices}">Secondes</label>
+    const selectRestMinutes = document.createElement("select");
+    selectRestMinutes.name = labelRestMinutes.for;
+    selectRestMinutes.id = selectRestMinutes.name;
+    selectRestMinutes.required;
+    selectRestMinutes.innerHTML = `" <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>"`;
+    divForDivRest.append(selectRestMinutes);
 
-                <select name="seconds-${whichDay.day + exercice.currentNumberOfExercices}" id="seconds-${whichDay.day + exercice.currentNumberOfExercices}" required>
-                    <option value="0">0</option>
-                    <option value="15">15</option>
-                    <option value="30">30</option>
-                    <option value="45">45</option>
-                </select>
+    const labelRestSeconds = document.createElement("label");
+    labelRestSeconds.for = `"seconds-${dayName}-1"`;
+    labelRestSeconds.innerText = "Secondes";
+    divForDivRest.append(labelRestSeconds);
 
-                </div>
+    const selectRestSeconds = document.createElement("select");
+    selectRestSeconds.name = labelRestSeconds.for;
+    selectRestSeconds.id = selectRestMinutes.name;
+    selectRestSeconds.required;
+    selectRestSeconds.innerHTML = `"  <option value="0">0</option>
+    <option value="15">15</option>
+    <option value="30">30</option>
+    <option value="45">45</option>"`;
+    divForDivRest.append(selectRestSeconds);
 
-            </div>
+    const divPerformance = document.createElement("div");
+    divPerformance.classList.add("performance");
+    divExercice.append(divPerformance);
 
-            <div class="performance">
+    const labelPerformance = document.createElement("label");
+    labelPerformance.for = `"performance-${dayName}-1"`
+    labelPerformance.innerText = "Poids de l'haltère";
+    divPerformance.append(labelPerformance);
 
-            <label for="performance-${whichDay.day + exercice.currentNumberOfExercices}">Poids de l'haltère</label>
-            <input type="number" id="performance-${whichDay.day + exercice.currentNumberOfExercices}" name="performance-${whichDay.day + exercice.currentNumberOfExercices}" max="500" maxlength="3">
+    const inputPerformance = document.createElement("input");
+    inputPerformance.type = "number";
+    inputPerformance.id = labelPerformance.for;
+    inputPerformance.name = inputPerformance.id;
+    inputPerformance.max = "500";
+    inputPerformance.maxLength = "3";
+    divPerformance.append(inputPerformance);
 
-            </div>
+    const buttonRemove = document.createElement("button");
+    buttonRemove.type = "button";
+    buttonRemove.classList.add("remove");
+    buttonRemove.innerText = "-";
+    divExercice.append(buttonRemove);
 
-        </div>
+    const buttonAddExercice = document.createElement("button");
+    buttonAddExercice.type = "button";
+    buttonAddExercice.classList.add("addExercice");
+    buttonAddExercice.innerText = "+";
+    divExercices.append(buttonAddExercice);
 
-    </div>
-    
-    <div class="buttonsExercices">
+    if (dayName === daysArray[0]) {
+        divSessions.prepend(divSession);
+        return;
+    }
 
-    <button type="button" id="addExercice-${whichDay.day}">+</button>
-    <button type="button" id="removeExercice-${whichDay.day}">-</button>
+    if (dayName === daysArray[6]) {
+        divSessions.append(divSession);
+        return;
+    }
 
-    </div>
+    divSessions.append(divSession);
 
-    <button type="button" id="sendSession${whichDay.day}">Valider la séance</button>
-    </div>`
+    console.log(selectedDaysArray[6]);
 
-    divSessions.append(divDay);
+    // selectedDaysArray.indexOf(dayName)+1]
 
-}   
+    // divSessions.insertBefore(divSession, selectedDaysArray.indexOf(dayName)+1);
+
+};
