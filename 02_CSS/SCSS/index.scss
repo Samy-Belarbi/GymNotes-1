@@ -21,7 +21,6 @@
 
 /* HEADER */
 
-
 #hamburgerButton {
     background-color: transparent;
     height: fit-content;
@@ -46,7 +45,7 @@
     .line {
         width: 25px;
         height: 2px;
-        box-shadow: 0px 0px 0.5px 0.5px rgba(0, 0, 0, 0.44);
+        box-shadow: 0px 0px 0.5px 0.5px rgb(0, 0, 0, 0.44);
         background-color: white;
         border-radius: 4px;
         @include classicTransi;
@@ -93,7 +92,6 @@ header {
 
     &:hover {
         transform: translateX(0px);
-
     }
 
     nav {
@@ -117,7 +115,7 @@ header {
                 justify-content: center;
 
                 a {
-                    color: rgba(255, 255, 255, 0.838);
+                    color: rgb(255, 255, 255, 0.838);
                     text-decoration: none;
                     width: 100%;
                     height: 100%;
@@ -137,7 +135,6 @@ header {
             }
 
             #login {
-
                 position: relative;
                 cursor: pointer;
 
@@ -171,7 +168,8 @@ header {
                     div {
                         align-items: center;
                     }
-                    input, label {
+                    input,
+                    label {
                         width: 80%;
                         text-align: center;
                     }
@@ -197,7 +195,6 @@ header {
                 }
             }
         }
-        
     }
 }
 
@@ -207,7 +204,6 @@ header {
     }
 
     header {
-
         height: 100vh;
         width: 200px;
         position: absolute;
@@ -232,7 +228,6 @@ header {
                 li {
                     width: 100%;
                 }
-
             }
         }
     }
@@ -523,9 +518,7 @@ header {
 
 @media (max-width: 500px) {
     #container-1 {
-
         #under-container1 {
-
             .session-container {
                 align-items: center;
             }
@@ -574,6 +567,7 @@ header {
 
         span {
             font-size: 60px;
+            @include classicTransi;
         }
 
         div {
@@ -596,12 +590,22 @@ header {
             transform: scale(1.05);
             color: white;
         }
+
+        @include classicTransi;
+
+        &:hover {
+            transform: scale(1.02);
+
+            span {
+                color: var(--gymBlue);
+                transform: scale(1.02);
+            }
+        }
     }
 }
 
 @media (max-width: 1280px) {
     #container-2 {
-
         div {
             align-items: center;
             justify-content: center;
@@ -611,8 +615,8 @@ header {
         }
 
         #whatIsGymnotes {
-
-            h2, span {
+            h2,
+            span {
                 font-size: 35px;
             }
 
@@ -621,14 +625,12 @@ header {
                     font-size: 20px;
                 }
             }
-
         }
     }
 }
 
 @media (max-width: 1040px) {
     #container-2 {
-
         div {
             img {
                 width: 100%;
@@ -649,19 +651,17 @@ header {
             padding-top: 1em;
             padding-bottom: 1em;
             width: 70%;
-            
-            h2, span {
+
+            h2,
+            span {
                 font-size: 40px;
             }
-
         }
     }
 }
 
-
 @media (max-width: 540px) {
     #container-2 {
-
         #whatIsGymnotes {
             width: 90%;
             padding-top: 1em;
@@ -669,7 +669,6 @@ header {
         }
     }
 }
-
 
 // SECTION 3
 
@@ -715,146 +714,233 @@ header {
         }
     }
 
-        #chart {
-            width: 90%;
-            color: white;
-            align-items: center;
-            gap: 60px;
-            background-color: #1e1e1e;
-            box-shadow: rgb(0 0 0) 0px 0px 4px 0px;
-            padding-top: 1em;
-            padding-bottom: 1em;
-    
-            #rod-container {
-                flex-direction: row;
-                justify-content: space-around;
-                width: 90%;
-    
-                div {
-                    align-items: center;
-                    justify-content: flex-end;
-                    gap: 20px;
-                    border-top-left-radius: 5px;
-                    border-top-right-radius: 5px;
-                }
-    
-                .rod-parent {
-                    height: 330px;
-                }
-    
-                .rod-1,
-                .rod-2,
-                .rod-3,
-                .rod-4,
-                .rod-5 {
-                    width: 10px;
-                    transform-origin: bottom;
-                    background-color: white;
-                    position: relative;
-    
-                    &::after {
-                        position: absolute;
-                        top: -40px;
-                        width: fit-content;
+    #slider-container {
+        width: 90%;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0px 0px 5px #00000069;
+
+        .slides {
+            width: 100%;
+            flex-direction: row;
+
+            .slide {
+                min-width: 100%;
+                background-color: red;
+            }
+
+            #chart,
+            #first-clone {
+                color: white;
+                align-items: center;
+                gap: 60px;
+                background-color: #1e1e1e;
+                box-shadow: rgb(0 0 0) 0px 0px 4px 0px;
+                padding-top: 1em;
+                padding-bottom: 1em;
+
+                .rod-container {
+                    flex-direction: row;
+                    justify-content: space-around;
+                    width: 90%;
+
+                    div {
+                        align-items: center;
+                        justify-content: flex-end;
+                        gap: 20px;
+                        border-top-left-radius: 5px;
+                        border-top-right-radius: 5px;
                     }
-                }
-    
-                .rod-1 {
-                    height: 280px;
-                    animation: goUp1 3s;
-                    background-color: red;
-                }
-    
-                .rod-1::after {
-                    content: "76";
-                }
-    
-                .rod-2 {
-                    height: 240px;
-                    animation: goUp2 4s;
-                    background-color: greenyellow;
-                }
-    
-                .rod-2::after {
-                    content: "73";
-                }
-    
-                .rod-3 {
-                    height: 200px;
-                    animation: goUp3 5s;
-                    background-color: greenyellow;
-                }
-    
-                .rod-3::after {
-                    content: "70";
-                }
-    
-                .rod-4 {
-                    height: 210px;
-                    animation: goUp4 6s;
-                    background-color: rgb(249, 118, 71);
-                }
-    
-                .rod-4::after {
-                    content: "71";
-                }
-    
-                .rod-5 {
-                    height: 140px;
-                    animation: goUp5 7s;
-                    background-color: greenyellow;
-                }
-    
-                .rod-5::after {
-                    content: "64";
-                }
-    
-                @keyframes goUp1 {
-                    0% {
-                        height: 0px;
+
+                    .rod-parent {
+                        height: 330px;
                     }
-                    100% {
+
+                    .rod-1,
+                    .rod-2,
+                    .rod-3,
+                    .rod-4,
+                    .rod-5 {
+                        width: 10px;
+                        transform-origin: bottom;
+                        background-color: white;
+                        position: relative;
+
+                        &::after {
+                            position: absolute;
+                            top: -40px;
+                            width: fit-content;
+                        }
+                    }
+
+                    .rod-1 {
                         height: 280px;
+                        animation: goUp1 3s;
+                        background-color: red;
                     }
-                }
-    
-                @keyframes goUp2 {
-                    0% {
-                        height: 0px;
+
+                    .rod-1::after {
+                        content: "76";
                     }
-                    100% {
+
+                    .rod-2 {
                         height: 240px;
+                        animation: goUp2 4s;
+                        background-color: greenyellow;
                     }
-                }
-    
-                @keyframes goUp3 {
-                    0% {
-                        height: 0px;
+
+                    .rod-2::after {
+                        content: "73";
                     }
-                    100% {
+
+                    .rod-3 {
                         height: 200px;
+                        animation: goUp3 5s;
+                        background-color: greenyellow;
                     }
-                }
-    
-                @keyframes goUp4 {
-                    0% {
-                        height: 0px;
+
+                    .rod-3::after {
+                        content: "70";
                     }
-                    100% {
+
+                    .rod-4 {
                         height: 210px;
+                        animation: goUp4 6s;
+                        background-color: rgb(249, 118, 71);
                     }
-                }
-    
-                @keyframes goUp5 {
-                    0% {
-                        height: 0px;
+
+                    .rod-4::after {
+                        content: "71";
                     }
-                    100% {
+
+                    .rod-5 {
                         height: 140px;
+                        animation: goUp5 7s;
+                        background-color: greenyellow;
+                    }
+
+                    .rod-5::after {
+                        content: "64";
+                    }
+
+                    @keyframes goUp1 {
+                        0% {
+                            height: 0px;
+                        }
+                        100% {
+                            height: 280px;
+                        }
+                    }
+
+                    @keyframes goUp2 {
+                        0% {
+                            height: 0px;
+                        }
+                        100% {
+                            height: 240px;
+                        }
+                    }
+
+                    @keyframes goUp3 {
+                        0% {
+                            height: 0px;
+                        }
+                        100% {
+                            height: 200px;
+                        }
+                    }
+
+                    @keyframes goUp4 {
+                        0% {
+                            height: 0px;
+                        }
+                        100% {
+                            height: 210px;
+                        }
+                    }
+
+                    @keyframes goUp5 {
+                        0% {
+                            height: 0px;
+                        }
+                        100% {
+                            height: 140px;
+                        }
                     }
                 }
             }
+
+            #performance {
+                background-image: url(../../03_IMAGES/graph.jpg);
+                background-position: top left;
+            }
+
+            #run {
+                background-image: url(../../03_IMAGES/run.png);
+                background-position: right 35% bottom;
+            }
+
+            #health,
+            #last-clone {
+                background-image: url(../../03_IMAGES/health.webp);
+            }
+
+            #performance,
+            #run,
+            #health,
+            #last-clone  {
+                justify-content: center;
+                align-items: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+
+                h3 {
+                    font-size: 80px;
+                    color: white;
+                    font-family: "jumper";
+                    text-align: center;
+                    text-shadow: var(--gymBlack) 1px 1px, var(--gymBlack) 2px 2px, var(--gymBlack) 3px 3px,
+                        var(--gymBlack) 3px 3px, var(--gymBlack) 4px 4px, var(--gymBlack) 5px 5px,
+                        var(--gymBlack) 6px 6px, var(--gymBlack) 7px 7px, var(--gymBlack) 8px 8px,
+                        var(--gymBlack) 9px 9px, var(--gymBlack) 10px 10px;
+
+                        @include classicTransi;
+                }
+
+                h3:hover {
+                    transform: scale(1.05);
+                }
+            }
         }
+
+            #button-left,
+            #button-right {
+                position: absolute;
+                top: 45%;
+                cursor: pointer;
+                background-color: transparent;
+                font-size: 30px;
+                border: none;
+                padding: 10px;
+                color: white;
+            }
+
+            #button-left {
+                left: 0;
+            }
+
+            #button-right {
+                right: 0;
+            }
+    }
+
+    #placeholder {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        color: white;
+        font-size: 10px;
+    }
 }
 
 @media (max-width: 1240px) {
@@ -866,13 +952,12 @@ header {
 
 @media (max-width: 650px) {
     #container-3 {
-        
-            #h2-container {        
-                h2,
-                span {
-                    font-size: 35px;
-                }
+        #h2-container {
+            h2,
+            span {
+                font-size: 35px;
             }
+        }
 
         #chart {
             width: 90%;
@@ -1017,12 +1102,9 @@ header {
     }
 }
 
-
 @media (max-width: 500px) {
     #container-4 {
-
         div {
-    
             span {
                 font-size: 40px;
             }
@@ -1042,7 +1124,6 @@ header {
             a {
                 font-size: 14px;
             }
-            
         }
     }
 }
@@ -1064,7 +1145,6 @@ header {
         text-align: center;
     }
 
-
     a {
         color: var(--gymBlack);
         font-size: 16px;
@@ -1074,7 +1154,7 @@ header {
     #cards-articles {
         flex-direction: row;
         flex-wrap: wrap-reverse;
-        width: 80%; 
+        width: 80%;
         gap: 20px;
         justify-content: center;
 
@@ -1104,7 +1184,7 @@ header {
             }
 
             &:hover {
-                background-color: rgba(246, 246, 246, 0.727);
+                background-color: rgb(246, 246, 246, 0.727);
                 transform: scale(1.04);
             }
         }
@@ -1113,7 +1193,7 @@ header {
     button {
         background-color: transparent;
         color: var(--gymBlack);
-        font-weight: 600    ;
+        font-weight: 600;
         border: none;
         outline: none;
         font-size: 18px;

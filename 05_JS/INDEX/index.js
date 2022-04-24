@@ -10,6 +10,9 @@ import { activeButton, blackBackground } from "./hamburgerButton.js";
 
 import { checkMenu, userIcon, closeMenu } from "./loginIcon.js";
 
+import { startSlide } from "./sliderProgress.js";
+
+
 const main = () => {
 
     // TYPEWRITER
@@ -25,7 +28,10 @@ const main = () => {
     // ANIMATION DU GRAPHIQUE
     container3.addEventListener("mouseover", startAnimationOnRods);
 
-}
+    // SLIDER AUTO
+    startSlide();
+
+}  
 
 
 addEventListener("load", main)
