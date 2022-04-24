@@ -2,8 +2,10 @@
 
 import { check } from "./addDay.js";
 
-const main = () => {
- 
+const main = () => {  
+
+    
 }
+
 
 addEventListener("load", main);
