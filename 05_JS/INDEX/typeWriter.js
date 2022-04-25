@@ -16,7 +16,7 @@ export const trackAfter = window.getComputedStyle(trackProgress, "::after");
 export let messageCreate = ["CRÉE TA SÉANCE"];
 export let messageCreatePosition = 0;
 
-export let messageStart = ["DÉMMARE TA SÉANCE"];
+export let messageStart = ["DÉMARRE TA SÉANCE"];
 export let messageStartPosition = 0;
 
 export let messageTrack = ["SUIS TA PROGRESSION"];
