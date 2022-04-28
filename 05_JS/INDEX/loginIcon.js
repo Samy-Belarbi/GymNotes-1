@@ -8,7 +8,9 @@ export const checkMenu = () => {
     if (window.innerWidth <= 700) {
         return;
      }
+
     if (!isMenuOpen) {
+        console.log(isMenuOpen);
         openMenu();
 
     } else {

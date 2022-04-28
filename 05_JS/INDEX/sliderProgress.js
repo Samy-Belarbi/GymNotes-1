@@ -14,6 +14,10 @@ export const firstClone = slide[0].cloneNode(true);
 export const lastClone = slide[slide.length - 1].cloneNode(true);
 
 firstClone.id = "first-clone";
+const rodsClone = firstClone.querySelectorAll(".rod");
+for (let i = 0; i < rodsClone.length; i++) {
+  rodsClone[i].classList.add(`rod-${i + 1}`);
+};
 lastClone.id = "last-clone";
 
 slides.append(firstClone);

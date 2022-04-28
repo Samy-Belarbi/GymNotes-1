@@ -8,9 +8,15 @@ import { container3, startAnimationOnRods} from "./chart.js";
 
 import { activeButton, blackBackground } from "./hamburgerButton.js";
 
-import { checkMenu, userIcon, closeMenu } from "./loginIcon.js";
+import { checkMenu, userIcon, closeMenu, isMenuOpen } from "./loginIcon.js";
 
 import { startSlide } from "./sliderProgress.js";
+
+const container1 = document.getElementById("container-1");
+const container2 = document.getElementById("container-2");
+
+const container1Height = container1.offsetHeight;
+const container2Height = container2.offsetHeight;
 
 
 const main = () => {
@@ -25,13 +31,35 @@ const main = () => {
     // CONNEXION
     userIcon.addEventListener("click", checkMenu);
 
-    // ANIMATION DU GRAPHIQUE
-    container3.addEventListener("mouseover", startAnimationOnRods);
-
-    // SLIDER AUTO
-    startSlide();
+    checkScrollPosition();
 
 }  
+
+const checkScrollPosition = () => {
+    let actualScrollPosition = document.body.scrollTop;
+
+    const finalScrollPosition = container1Height + container2Height;
+
+    if (actualScrollPosition >= finalScrollPosition) {
+
+
+    launchSliderAnimations();
+
+    return;
+
+    }
+
+    window.requestAnimationFrame(checkScrollPosition);
+
+}
+
+const launchSliderAnimations = () => {
+         // ANIMATION DU GRAPHIQUE
+         startAnimationOnRods();
+
+         // SLIDER AUTO
+         startSlide();
+}
 
 
 addEventListener("load", main)
