@@ -70,12 +70,16 @@ export const startSlide = () => {
     slides.style.transform = `translateX(${-slideWidth * index}px)`;
   };
   
-  sliderContainer.addEventListener("mouseenter", () => {
-    clearInterval(slideId);
-  });
-  
-  sliderContainer.addEventListener("mouseleave", startSlide);
-  buttonRight.addEventListener("click", moveToNextSlide);
-  buttonLeft.addEventListener("click", moveToPreviousSlide);
-  
-  
+  export const checkMouseOnSlider = () => {
+    
+    sliderContainer.addEventListener("mouseenter", () => {
+      clearInterval(slideId);
+    });
+    
+    if (window.innerWidth > 800) {
+    sliderContainer.addEventListener("mouseleave", startSlide);
+    }
+    buttonRight.addEventListener("click", moveToNextSlide);
+    buttonLeft.addEventListener("click", moveToPreviousSlide);
+    
+  }

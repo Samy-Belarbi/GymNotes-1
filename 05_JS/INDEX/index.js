@@ -10,7 +10,7 @@ import { activeButton, blackBackground } from "./hamburgerButton.js";
 
 import { checkMenu, userIcon, closeMenu, isMenuOpen } from "./loginIcon.js";
 
-import { startSlide } from "./sliderProgress.js";
+import { checkMouseOnSlider, startSlide } from "./sliderProgress.js";
 
 const container1 = document.getElementById("container-1");
 const container2 = document.getElementById("container-2");
@@ -38,14 +38,13 @@ const main = () => {
 const checkScrollPosition = () => {
     let actualScrollPosition = document.body.scrollTop;
 
-    const finalScrollPosition = container1Height + container2Height;
+    const finalScrollPosition = container1Height + (container2Height / 2);
 
     if (actualScrollPosition >= finalScrollPosition) {
 
+        launchSliderAnimations();
 
-    launchSliderAnimations();
-
-    return;
+        return;
 
     }
 
@@ -56,9 +55,15 @@ const checkScrollPosition = () => {
 const launchSliderAnimations = () => {
          // ANIMATION DU GRAPHIQUE
          startAnimationOnRods();
-
+   
          // SLIDER AUTO
-         startSlide();
+
+         if (window.innerWidth > 800) {
+            startSlide();
+         }
+
+         checkMouseOnSlider();
+
 }
 
 

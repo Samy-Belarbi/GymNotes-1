@@ -750,6 +750,10 @@ header {
                         gap: 20px;
                         border-top-left-radius: 5px;
                         border-top-right-radius: 5px;
+
+                        p {
+                            padding-bottom: 2em;
+                        }
                     }
 
                     .rod-parent {
@@ -888,7 +892,7 @@ header {
             #performance,
             #run,
             #health,
-            #last-clone  {
+            #last-clone {
                 justify-content: center;
                 align-items: center;
                 background-repeat: no-repeat;
@@ -904,7 +908,7 @@ header {
                         var(--gymBlack) 6px 6px, var(--gymBlack) 7px 7px, var(--gymBlack) 8px 8px,
                         var(--gymBlack) 9px 9px, var(--gymBlack) 10px 10px;
 
-                        @include classicTransi;
+                    @include classicTransi;
                 }
 
                 h3:hover {
@@ -913,25 +917,25 @@ header {
             }
         }
 
-            #button-left,
-            #button-right {
-                position: absolute;
-                top: 45%;
-                cursor: pointer;
-                background-color: transparent;
-                font-size: 30px;
-                border: none;
-                padding: 10px;
-                color: white;
-            }
+        #button-left,
+        #button-right {
+            position: absolute;
+            top: 45%;
+            cursor: pointer;
+            background-color: transparent;
+            font-size: 30px;
+            border: none;
+            padding: 10px;
+            color: white;
+        }
 
-            #button-left {
-                left: 0;
-            }
+        #button-left {
+            left: 0;
+        }
 
-            #button-right {
-                right: 0;
-            }
+        #button-right {
+            right: 0;
+        }
     }
 }
 
@@ -942,6 +946,26 @@ header {
     }
 }
 
+@media (max-width: 800px) {
+    #container-3 {
+        #slider-container {
+
+            .slides {
+                #performance,
+                #run,
+                #health,
+                #last-clone {
+    
+                    h3 {
+                        font-size: 50px;
+                    }
+    
+                }
+            }
+    
+        }
+    }
+}
 @media (max-width: 650px) {
     #container-3 {
         #h2-container {
@@ -951,13 +975,48 @@ header {
             }
         }
 
-        #chart {
-            width: 90%;
+        #slider-container {
+            .slides {
+                #chart,
+                #first-clone {
+                    .rod-container {
+                        div {
+                            p {
+                                font-size: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
-            #rod-container {
-                p {
-                    font-size: 10px;
-                    text-align: center;
+@media (max-width: 450px) {
+    #container-3 {
+
+        #slider-container {
+            .slides {
+
+                #chart, 
+                #first-clone {
+                    align-items: center;
+                    .rod-container {
+                        height: 90%;
+                    }
+                    h3 {
+                        font-size: 16px;
+                    }
+                }
+                #performance,
+                #run,
+                #health,
+                #last-clone {
+    
+                    h3 {
+                        font-size: 30px;
+                    }
+    
                 }
             }
         }
