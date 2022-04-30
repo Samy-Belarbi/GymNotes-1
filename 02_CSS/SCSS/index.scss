@@ -1245,6 +1245,10 @@ header {
                 text-align: center;
             }
 
+            a {
+                color: var(--gymBlue);
+            }
+
             p {
                 text-align: center;
             }
@@ -1262,17 +1266,6 @@ header {
         }
     }
 
-    button {
-        background-color: transparent;
-        color: var(--gymBlack);
-        font-weight: 600;
-        border: none;
-        outline: none;
-        font-size: 18px;
-        padding-left: 1em;
-        padding-right: 1em;
-        cursor: pointer;
-    }
 }
 
 // FOOTER
