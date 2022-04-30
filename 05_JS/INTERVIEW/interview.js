@@ -1,12 +1,20 @@
 "use strict";
 
-import { buttonValid, makeSlideToRight, widthLi } from "./slider.js";
+import { buttonValid, divButtons, makeSlideToRight, widthLi } from "./slider.js";
 
-import { check } from "./checkRadio.js";
+import { check, labels } from "./checkRadio.js";
+
+import { responsiveSlider } from "./mobileVersion.js";
 
 const main = () => {
 
-    buttonValid.addEventListener("click", makeSlideToRight);
+    if (window.innerWidth > 1000) {
+        buttonValid.addEventListener("click", makeSlideToRight);
+    }
+
+    if (window.innerWidth <= 1000) {
+        responsiveSlider();
+    }
     
 }
 

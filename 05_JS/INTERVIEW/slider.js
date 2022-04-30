@@ -106,6 +106,7 @@ export const createButtonValid = () => {
 
     if (!buttonValidExist) {
         const button = buttonCreator("buttonValid", "Valider", makeSlideToRight);
+        button.type = "button";
         divButtons.append(button);
         buttonValidExist = true;
     }
@@ -134,6 +135,9 @@ export const buttonCreator = (id, innerText, functionCalled) => {
     const button = document.createElement("button");
     button.id = id;
     button.innerText = innerText;
+    if (functionCalled === undefined) {
+        return button;
+    }
     button.addEventListener("click", functionCalled);
     return button;
 }
