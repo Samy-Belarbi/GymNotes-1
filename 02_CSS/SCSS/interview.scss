@@ -68,8 +68,6 @@ main {
 
         scroll-behavior: smooth;
 
-        height: fit-content;
-
         &::-webkit-scrollbar {
             display: none;
         }
@@ -80,7 +78,6 @@ main {
 
         li {
             min-width: 100%;
-            height: fit-content;
             align-items: center;
             justify-content: center;
             padding-top: 2em;

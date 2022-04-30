@@ -5,17 +5,16 @@ export let isMenuOpen = false;
 
 export const checkMenu = () => {
 
-    if (window.innerWidth <= 700) {
-        return;
+    if (window.innerWidth > 700) {
+        if (!isMenuOpen) {
+            console.log(isMenuOpen);
+            openMenu();
+    
+        } else {
+           closeMenu();
+        }
      }
 
-    if (!isMenuOpen) {
-        console.log(isMenuOpen);
-        openMenu();
-
-    } else {
-       closeMenu();
-    }
 }
 
 export const openMenu = () => {

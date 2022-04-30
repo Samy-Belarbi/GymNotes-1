@@ -83,6 +83,7 @@ export const createButtonGenerate = () => {
         && !buttonGenerateExist) {
 
         const button = buttonCreator("buttonGenerate", "Je génère mon programme", createSession);
+        button.type = "submit";
 
         buttonGenerateExist = true;
 
