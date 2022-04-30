@@ -23,7 +23,7 @@ lastClone.id = "last-clone";
 slides.append(firstClone);
 slides.prepend(lastClone);
 
-export const slideWidth = slide[index].clientWidth;
+export const slideWidth = slide[index].clientWidth + 1; //1 de plus pour le gap car ça mettait une micro bordure
 
 slides.style.transform = `translateX(${-slideWidth * index}px)`;
 

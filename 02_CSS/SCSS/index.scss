@@ -239,7 +239,7 @@ header {
 .buttons {
     background: linear-gradient(to right, var(--gymYellow) 50%, var(--gymBlue) 50%);
     background-size: 200% 100%;
-    background-position: right bottom;
+    background-position: right 0 bottom 0;
 
     font-size: 18px;
     font-weight: 700;
@@ -470,38 +470,41 @@ header {
 
 @media (max-width: 700px) {
     #container-1 {
+        justify-content: flex-start;
         #under-container1 {
             flex-direction: column;
-            justify-content: space-around;
+            justify-content: center;
+            align-items: center;
             height: 70%;
             width: 100%;
             gap: 0px;
 
             div {
-                height: 50%;
-                width: 100%;
+                height: fit-content;
             }
 
             #typewriter {
                 height: 100%;
                 width: 100%;
-                justify-content: space-evenly;
+                justify-content: center;
+                gap: 80px;
+                padding-top: 2em;
 
                 .session-container {
                     align-items: center;
+                    h2 {
+                        font-size: 30px;
+                    }
                     &:hover {
                         h2 {
-                            & + p {
-                                background: transparent;
-                                font-size: 16px;
-                                text-align: center;
-                                width: 60%;
-                                height: fit-content;
-                            }
+                            transform: scale(1);
 
-                            &:before {
-                                height: 100%;
-                                left: -20px;
+                            & + p {
+                                display: none;
+                            }
+    
+                            &::before {
+                                transform: scale(0);
                             }
                         }
                     }
@@ -510,8 +513,9 @@ header {
 
             #smartphoneApp {
                 img {
-                    padding-top: 0;
-                    height: 80%;
+                    display: none;
+                    height: 0;
+                    width: 0;
                 }
             }
         }
@@ -547,9 +551,15 @@ header {
     div {
         width: 40%;
         height: 80%;
+    }
 
+    .img-what-is {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        padding-left: 2em;
         img {
-            width: fit-content;
+            width: 70%;
         }
     }
 
@@ -730,9 +740,11 @@ header {
         .slides {
             width: 100%;
             flex-direction: row;
+            gap: 1px;
 
             .slide {
                 min-width: 100%;
+                box-sizing: border-box;
             }
 
             #chart,
@@ -1237,7 +1249,9 @@ header {
             }
 
             img {
-                width: 150px;
+                max-width: 150px;
+                max-height: 100px;
+                height: fit-content;
             }
 
             &:hover {
