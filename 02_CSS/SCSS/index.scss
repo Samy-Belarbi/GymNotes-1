@@ -647,7 +647,7 @@ header {
 
 @media (max-width: 1040px) {
     #container-2 {
-        div {
+        .img-what-is {
             img {
                 width: 100%;
             }
@@ -1231,6 +1231,7 @@ header {
             align-items: center;
             justify-content: space-between;
             gap: 20px;
+            min-width: 200px;
 
             flex: 1 0;
 
