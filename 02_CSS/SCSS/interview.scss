@@ -134,3 +134,35 @@ main {
         color: white;
     }
 }
+
+@media (max-width: 1000px) {
+    #container {
+
+        h2 {
+            font-size: 40px;
+        }
+
+        #slider {
+            flex-direction: column;
+
+            h3 {
+                font-size: 20px;
+            }
+
+            li {
+                .questions {
+
+                    label {
+                        min-height: 40px;
+                        max-height: 100px;
+                        height: fit;
+                        min-width: fit-content;
+                        max-width: 100px;
+
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}
