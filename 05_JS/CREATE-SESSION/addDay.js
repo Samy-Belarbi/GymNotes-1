@@ -196,6 +196,8 @@ export const dayGenerator = () => {
     // divExercice.append(buttonRemove);
 
     let indexSuperior = findIndexSuperior();
+    
+    console.log(indexSuperior);
 
     if (indexSuperior === undefined) {
         divSessions.append(divSession);
